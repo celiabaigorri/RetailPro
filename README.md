@@ -1,23 +1,47 @@
-# Ventas Tech Database
+# RetailPro – SQL Database & Business Analysis
 
 ## Project Overview
 
-This project consists of the design and implementation of a relational database for a technology retail business using **Microsoft SQL Server**.
+RetailPro is a practical SQL project focused on relational database implementation and business data analysis using **Microsoft SQL Server**.
 
-The database, named `Ventas_Tech_DB`, manages information about product categories, customers, products, and sales. It demonstrates the use of relational database concepts, primary keys, foreign keys, constraints, and SQL data manipulation and validation statements.
+The project simulates a technology retail business and aims to extract meaningful business insights from sales data through SQL queries. It is structured around two main stages: database creation and data analysis.
 
-## Database Structure
+## Modules
 
-The database contains four related tables:
+### M3 – Database Creation and Implementation
+
+Creation and population of the `Ventas_Tech_DB` relational database.
+
+The database consists of four related tables:
 
 | Table | Description |
 |---|---|
-| `categorias` | Stores product categories and their descriptions. |
+| `categorias` | Stores product categories and descriptions. |
 | `clientes` | Stores customer information and registration dates. |
 | `productos` | Stores product details, prices, stock, and category references. |
 | `ventas` | Records sales transactions, including customers, products, quantities, and dates. |
 
-### Entity Relationships
+**Key concepts:**
+- Relational database design.
+- Primary and foreign keys.
+- Data integrity and constraints.
+- SQL Server database and table creation.
+- Data insertion and validation.
+
+### M4 – Business SQL Queries
+
+Development of SQL queries to extract key business metrics from the `ventas` table.
+
+The analysis includes:
+
+1. **Monthly Executive Summary:** Total revenue, number of orders, and average order value, grouped by month.
+2. **Product Ranking:** Top 5 products by total revenue, including units sold.
+3. **Returning Customers:** Identification of customers with more than one order and calculation of their total spending.
+4. **Product Revenue Comparison:** Classification of products as above or below average revenue using CTEs, subqueries, and CASE WHEN statements.
+
+The module also includes three business insights derived from the query results.
+
+## Database Relationships
 
 - One category can contain multiple products (1:N).
 - One customer can make multiple purchases (1:N).
@@ -29,45 +53,34 @@ The database contains four related tables:
 - SQL Server Management Studio (SSMS)
 - SQL
 
-## Implementation
+## Repository Structure
 
-The SQL script (`ventas_tech_db.sql`) is organized into four main sections:
-
-1. **DROP TABLE:** Removes existing tables in the correct dependency order to allow the script to be executed repeatedly.
-2. **CREATE TABLE:** Creates the four tables and defines their columns, primary keys, foreign keys, and constraints.
-3. **INSERT DATA:** Populates the database with sample records.
-4. **VALIDATION:** Executes SELECT queries to verify that the data has been inserted correctly.
-
-## Data Overview
-
-The database includes the following sample records:
-
-- 4 product categories
-- 5 customers
-- 6 products
-- 10 sales transactions
+```text
+RetailPro/
+│
+├── README.md
+├── ventas_tech_db.sql
+└── m4_consultas_negocio.sql
+```
 
 ## How to Run the Project
 
 1. Open Microsoft SQL Server Management Studio (SSMS).
-2. Open the file `ventas_tech_db.sql`.
-3. Execute the entire script.
-4. Check the validation queries to verify the contents of each table.
+2. Execute `ventas_tech_db.sql` to create and populate the database.
+3. Open `m4_consultas_negocio.sql`.
+4. Execute the queries against the `Ventas_Tech_DB` database.
+5. Review the results to identify key business metrics and insights.
 
-The script is designed to be executed multiple times without errors, recreating the tables and inserting the sample data each time.
+## Project Objectives
 
-## Learning Objectives
-
-This project demonstrates practical knowledge of:
-
-- Relational database design.
-- SQL Server database and table creation.
-- Primary and foreign key constraints.
-- Data integrity and referential integrity.
-- SQL data insertion and retrieval.
-- Database validation and script reusability.
+- Build and manage a relational database.
+- Apply SQL queries to real-world business questions.
+- Extract and interpret sales performance metrics.
+- Identify top-performing products and returning customers.
+- Prepare structured data for further visualization and analysis in Power BI.
 
 ---
 
-**Project:** SQL Database Implementation – Ventas Tech  
-**Database:** `Ventas_Tech_DB`
+**Project:** RetailPro  
+**Database:** `Ventas_Tech_DB`  
+**Focus:** SQL Database Management & Business Intelligence
