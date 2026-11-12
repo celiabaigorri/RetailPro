@@ -112,6 +112,34 @@ One category can contain multiple products (1).
 One customer can make multiple purchases (1).
 
 One product can appear in multiple sales records (1).
+How to Run the Project
+
+Open Microsoft SQL Server Management Studio (SSMS).
+
+Execute ventas_tech_db.sql to create and populate the database.
+
+Open m4_consultas_negocio.sql and execute the business analysis queries.
+
+Open m5_consultas_joins.sql and execute the JOIN and UNION ALL queries.
+
+Review the results to identify business metrics, customer behavior, and product performance.
+
+## Project Objectives
+
+Build and manage a relational database.
+
+Apply SQL queries to real-world business questions.
+
+Extract and interpret sales performance metrics.
+
+Identify top-performing products and returning customers.
+
+Integrate multiple tables using relational joins.
+
+Consolidate and compare sales data from different periods.
+
+Prepare structured datasets for visualization and further analysis in Power BI.
+
 
 ## Technologies Used
 
