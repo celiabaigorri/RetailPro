@@ -1,4 +1,4 @@
-# RetailPro – SQL Database & Business Analysis
+``# RetailPro – SQL Database & Business Analysis
 
 ## Project Overview
 
@@ -79,6 +79,56 @@ RetailPro/
 - Identify top-performing products and returning customers.
 - Prepare structured data for further visualization and analysis in Power BI.
 
+### - M5 – SQL Joins and Data Consolidation
+
+Integration of relational tables to create enriched datasets for business analysis and future Power BI visualizations.
+
+## The analysis includes:
+
+Business Overview (INNER JOIN): Integration of sales, customers, products, and categories into a single dataset, including customer location and sales totals.
+
+Customers Without Sales (LEFT JOIN): Identification of registered customers who have not made any purchases, supporting CRM analysis.
+
+Products Without Sales (LEFT JOIN): Detection of catalog products with no recorded sales, supporting product performance analysis.
+
+Sales Consolidation (UNION ALL): Combination of sales from two different periods, using manually assigned origin labels and comparing total revenue.
+
+## Key concepts:
+
+INNER JOIN and LEFT JOIN.
+
+Referential relationships between tables.
+
+NULL identification and filtering.
+
+UNION ALL and result consolidation.
+
+Subqueries and aggregate functions.
+
+## Database Relationships
+
+One category can contain multiple products (1).
+
+One customer can make multiple purchases (1).
+
+One product can appear in multiple sales records (1).
+
+## Technologies Used
+
+Microsoft SQL Server
+
+SQL Server Management Studio (SSMS)
+
+SQL
+
+### Repository Structure
+
+RetailPro/
+│
+├── README.md
+├── ventas_tech_db.sql
+├── m4_consultas_negocio.sql
+└── m5_consultas_joins.sql
 ---
 
 **Project:** RetailPro  
