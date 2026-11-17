@@ -1,164 +1,141 @@
-``# RetailPro – SQL Database & Business Analysis
+# RetailPro – SQL Database & Business Analysis
 
-## Project Overview
+## 1. Project Overview
 
-RetailPro is a practical SQL project focused on relational database implementation and business data analysis using **Microsoft SQL Server**.
+RetailPro is a data analysis project focused on the implementation of a relational database and the analysis of sales data for a fictional technology retail company called Ventas Tech.
 
-The project simulates a technology retail business and aims to extract meaningful business insights from sales data through SQL queries. It is structured around two main stages: database creation and data analysis.
+The main objective is to transform business data into useful information for decision-making by applying SQL queries, relational data modelling, data preparation and visualization techniques.
 
-## Modules
+The project covers the complete analytical workflow, from database creation and data validation to business analysis and Power BI reporting.
 
-### M3 – Database Creation and Implementation
+## 2. Database Description
 
-Creation and population of the `Ventas_Tech_DB` relational database.
+The project uses a relational database called `Ventas_Tech_DB`, implemented in Microsoft SQL Server.
 
-The database consists of four related tables:
+It consists of four main tables:
 
 | Table | Description |
 |---|---|
-| `categorias` | Stores product categories and descriptions. |
-| `clientes` | Stores customer information and registration dates. |
-| `productos` | Stores product details, prices, stock, and category references. |
-| `ventas` | Records sales transactions, including customers, products, quantities, and dates. |
+| `clientes` | Stores customer information, including names, contact details and registration dates. |
+| `productos` | Contains product information, prices, stock and category references. |
+| `categorias` | Stores product categories and their descriptions. |
+| `ventas` | Records sales transactions, including dates, customers, products, quantities and unit prices. |
 
-**Key concepts:**
+### Database relationships
+
+The database follows a relational structure based on primary and foreign keys:
+
+- One customer can have multiple sales records (1:N).
+- One product can appear in multiple sales records (1:N).
+- One category can contain multiple products (1:N).
+
+These relationships allow information from different tables to be combined and analysed consistently.
+
+## 3. Project Development
+
+### M3 – Database Creation and Implementation
+
+Creation and population of the `Ventas_Tech_DB` database.
+
+Main activities:
 - Relational database design.
-- Primary and foreign keys.
-- Data integrity and constraints.
-- SQL Server database and table creation.
-- Data insertion and validation.
+- Table creation and data insertion.
+- Definition of primary and foreign keys.
+- Referential integrity and data validation.
 
 ### M4 – Business SQL Queries
 
-Development of SQL queries to extract key business metrics from the `ventas` table.
+Development of SQL queries to answer relevant business questions.
 
 The analysis includes:
 
-1. **Monthly Executive Summary:** Total revenue, number of orders, and average order value, grouped by month.
-2. **Product Ranking:** Top 5 products by total revenue, including units sold.
-3. **Returning Customers:** Identification of customers with more than one order and calculation of their total spending.
-4. **Product Revenue Comparison:** Classification of products as above or below average revenue using CTEs, subqueries, and CASE WHEN statements.
+1. **Monthly Executive Summary:** calculation of total revenue, number of orders and average order value by month.
+2. **Product Ranking:** identification of the top five products by total revenue and units sold.
+3. **Returning Customers:** identification of customers with more than one purchase and calculation of their total spending.
+4. **Product Revenue Comparison:** comparison of product revenue against the average using CTEs and conditional logic.
 
-The module also includes three business insights derived from the query results.
+### M5 – SQL Joins and Data Consolidation
 
-## Database Relationships
+Integration of information from different relational tables to obtain datasets suitable for business analysis.
 
-- One category can contain multiple products (1:N).
-- One customer can make multiple purchases (1:N).
-- One product can appear in multiple sales records (1:N).
+The analysis includes:
 
-## Technologies Used
+- **Business Overview (INNER JOIN):** integration of sales, customers, products and categories.
+- **Customers Without Sales (LEFT JOIN):** identification of customers without recorded purchases.
+- **Products Without Sales (LEFT JOIN):** identification of products without sales.
+- **Sales Consolidation (UNION ALL):** comparison of revenue across two periods.
 
-- Microsoft SQL Server
-- SQL Server Management Studio (SSMS)
-- SQL
+### Power BI – Data Preparation and Modelling
 
-## Repository Structure
+The project also incorporates Power BI to prepare and model the sales data for visualization.
+
+Main activities include:
+- Data preparation and transformation using Power Query.
+- Creation of dimension tables and a sales fact table.
+- Definition of relationships between tables.
+- Creation of a calendar table.
+- Development of DAX measures for sales analysis, including total sales, online sales, year-to-date sales, previous-year sales and annual growth.
+
+## 4. Technologies Used
+
+- **Microsoft SQL Server:** relational database management.
+- **SQL Server Management Studio (SSMS):** database creation and query execution.
+- **SQL:** data manipulation, joins, aggregations and business analysis.
+- **Microsoft Power BI:** data transformation, modelling and visualization.
+- **DAX:** calculation of business metrics and analytical measures.
+- **Power Query:** data preparation and transformation.
+
+## 5. Repository Structure
+
+The repository contains the following main files:
 
 ```text
 RetailPro/
 │
 ├── README.md
-├── ventas_tech_db.sql
-└── m4_consultas_negocio.sql
+├── ventas_tech_dbM3.sql
+├── m4_consultas_negocio.sql
+├── m5_consultas_joins.sql
+├── Pipeline_ETL_Apellido_Nombre.pbix
+└── Baigorri_Celia_Checkpoint2.pbix
 ```
 
-## How to Run the Project
+The SQL scripts correspond to the database implementation and business analysis stages. The Power BI files contain the data preparation and modelling work developed during the project.
 
-1. Open Microsoft SQL Server Management Studio (SSMS).
-2. Execute `ventas_tech_db.sql` to create and populate the database.
-3. Open `m4_consultas_negocio.sql`.
-4. Execute the queries against the `Ventas_Tech_DB` database.
-5. Review the results to identify key business metrics and insights.
+## 6. How to Run the Project
 
-## Project Objectives
+### Requirements
 
-- Build and manage a relational database.
-- Apply SQL queries to real-world business questions.
-- Extract and interpret sales performance metrics.
-- Identify top-performing products and returning customers.
-- Prepare structured data for further visualization and analysis in Power BI.
+- Microsoft SQL Server.
+- SQL Server Management Studio (SSMS).
+- Microsoft Power BI Desktop (to open the `.pbix` files).
 
-### - M5 – SQL Joins and Data Consolidation
+### Execution steps
 
-Integration of relational tables to create enriched datasets for business analysis and future Power BI visualizations.
+1. Open SQL Server Management Studio and connect to a SQL Server instance.
+2. Open `ventas_tech_dbM3.sql` and execute the script to create and populate the database.
+3. Open `m4_consultas_negocio.sql` and execute the business analysis queries.
+4. Open `m5_consultas_joins.sql` and execute the queries involving JOIN operations and data consolidation.
+5. Review the query results to identify sales performance, product ranking and customer behaviour.
+6. Open the Power BI files using Power BI Desktop to inspect the data preparation and modelling work.
 
-## The analysis includes:
+The SQL scripts should be executed in the appropriate database context. Review the database and table names before running the queries.
 
-Business Overview (INNER JOIN): Integration of sales, customers, products, and categories into a single dataset, including customer location and sales totals.
+## 7. Project Objectives
 
-Customers Without Sales (LEFT JOIN): Identification of registered customers who have not made any purchases, supporting CRM analysis.
+The main objectives of RetailPro are:
 
-Products Without Sales (LEFT JOIN): Detection of catalog products with no recorded sales, supporting product performance analysis.
+- Design and implement a relational database.
+- Apply SQL to answer business questions.
+- Analyse sales performance and product revenue.
+- Identify customer purchasing behaviour.
+- Integrate data from multiple tables using relational joins.
+- Prepare and transform data for analysis.
+- Build a structured data model in Power BI.
+- Develop analytical measures to support business decision-making.
 
-Sales Consolidation (UNION ALL): Combination of sales from two different periods, using manually assigned origin labels and comparing total revenue.
+## 8. Final Considerations
 
-## Key concepts:
+RetailPro demonstrates the application of database management, SQL querying, data preparation, relational modelling and business intelligence techniques in a practical retail scenario.
 
-INNER JOIN and LEFT JOIN.
-
-Referential relationships between tables.
-
-NULL identification and filtering.
-
-UNION ALL and result consolidation.
-
-Subqueries and aggregate functions.
-
-## Database Relationships
-
-One category can contain multiple products (1).
-
-One customer can make multiple purchases (1).
-
-One product can appear in multiple sales records (1).
-How to Run the Project
-
-Open Microsoft SQL Server Management Studio (SSMS).
-
-Execute ventas_tech_db.sql to create and populate the database.
-
-Open m4_consultas_negocio.sql and execute the business analysis queries.
-
-Open m5_consultas_joins.sql and execute the JOIN and UNION ALL queries.
-
-Review the results to identify business metrics, customer behavior, and product performance.
-
-## Project Objectives
-
-Build and manage a relational database.
-
-Apply SQL queries to real-world business questions.
-
-Extract and interpret sales performance metrics.
-
-Identify top-performing products and returning customers.
-
-Integrate multiple tables using relational joins.
-
-Consolidate and compare sales data from different periods.
-
-Prepare structured datasets for visualization and further analysis in Power BI.
-
-
-## Technologies Used
-
-Microsoft SQL Server
-
-SQL Server Management Studio (SSMS)
-
-SQL
-
-### Repository Structure
-
-RetailPro/
-│
-├── README.md
-├── ventas_tech_db.sql
-├── m4_consultas_negocio.sql
-└── m5_consultas_joins.sql
----
-
-**Project:** RetailPro  
-**Database:** `Ventas_Tech_DB`  
-**Focus:** SQL Database Management & Business Intelligence
+The project follows an end-to-end analytical approach, connecting data management with the extraction and communication of business insights.
